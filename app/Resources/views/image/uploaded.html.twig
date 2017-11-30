@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Imagem Redimensionada
+{% endblock %}
+
+{% block body %}
+
+<a href="{{ asset('uploads/files/' ~ image.file) }}">Ver imagem redimensionada</a>
+
+{% endblock %}

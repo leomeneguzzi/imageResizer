@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+    Redimensionamento da imagem
+{% endblock %}
+
+{% block body %}
+    <h1>Upload da imagem que será redimensionada</h1>
+    {{ form_start(form) }}
+        {# ... #}
+
+        {{ form_row(form.file) }}
+    {{ form_end(form) }}
+{% endblock %}
