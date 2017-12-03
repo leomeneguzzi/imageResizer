@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 class ImageType extends AbstractType
 {
@@ -17,6 +18,7 @@ class ImageType extends AbstractType
         $builder
             // ...
             ->add('file', FileType::class, array('label' => 'Arquivo'))
+            ->add('scale', NumberType::class, array('label' => 'Porcetagem da qual a imagem será reescalada'))
             ->add('submit', SubmitType::class, array('label' => 'Enviar'))
         ;
     }
@@ -24,7 +26,7 @@ class ImageType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => Image::class,
+            'data_class' => Image::class
         ));
     }
 }

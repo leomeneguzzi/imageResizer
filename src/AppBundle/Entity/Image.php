@@ -17,6 +17,7 @@ class Image
      * @Assert\Image(mimeTypesMessage="Este arquivo não é um tipo de imagem válido.")
      */
     private $file;
+    private $scale;
 
     public function getFile()
     {
@@ -26,7 +27,17 @@ class Image
     public function setFile($file)
     {
         $this->file = $file;
+        return $this;
+    }
 
+    public function getScale()
+    {
+        return $this->scale;
+    }
+
+    public function setScale($scale)
+    {
+        $this->scale = $scale;
         return $this;
     }
 }

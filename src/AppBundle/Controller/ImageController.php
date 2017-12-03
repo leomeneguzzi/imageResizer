@@ -39,7 +39,7 @@ class ImageController extends Controller
             );
             
             $imageResized = new ImageResize($this->getParameter('files_directory') .'/'. $fileName);
-            $imageResized->scale(50);
+            $imageResized->scale($image->getScale());
             
             $fileName = md5(uniqid()).'.'.$extensionFile;
 
