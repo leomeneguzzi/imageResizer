@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Image;
 use AppBundle\Form\ImageType;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use \Eventviva\ImageResize;
 
 class ImageController extends Controller
 {
@@ -26,16 +27,25 @@ class ImageController extends Controller
             // $file stores the uploaded Image file
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
             $file = $image->getFile();
+            $extensionFile = $file->guessExtension();
 
             // Generate a unique name for the file before saving it
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $fileName = md5(uniqid()).'.'.$extensionFile;
 
             // Move the file to the directory where files are stored
             $file->move(
                 $this->getParameter('files_directory'),
                 $fileName
             );
+            
+            $imageResized = new ImageResize($this->getParameter('files_directory') .'/'. $fileName);
+            $imageResized->scale(50);
+            
+            $fileName = md5(uniqid()).'.'.$extensionFile;
 
+            $imageResized->save($this->getParameter('files_directory') .'/'.$fileName);
+            
+            
             // Update the 'file' property to store the Image file name
             // instead of its contents
             $image->setFile($fileName);
