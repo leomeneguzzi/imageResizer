@@ -17,8 +17,8 @@ class ImageType extends AbstractType
     {
         $builder
             // ...
-            ->add('file', FileType::class, array('label' => 'Arquivo'))
-            ->add('scale', NumberType::class, array('label' => 'Porcetagem da qual a imagem será reescalada'))
+            ->add('file', FileType::class, array('label' => 'Arquivo: '))
+            ->add('scale', NumberType::class, array('label' => 'Porcetagem da qual a imagem será reescalada(%): '))
             ->add('submit', SubmitType::class, array('label' => 'Enviar'))
         ;
     }
