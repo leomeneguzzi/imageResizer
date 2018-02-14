@@ -3,7 +3,7 @@ imageResizer
 That is a image resizer demo using Symfony.  
 To run this code you need have installed:
 
-PHP (I use version 7.0);  
+PHP (I use version 7.1);  
 Composer(I use version 1.6);  
 And need [Symfony 3.3 requirements](http://symfony.com/doc/3.3/reference/requirements.html).
 
